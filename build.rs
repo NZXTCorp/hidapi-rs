@@ -110,6 +110,7 @@ fn compile_windows() {
     cc::Build::new()
         .file("etc/hidapi/windows/hid.c")
         .include("etc/hidapi/hidapi")
+        .static_crt(true)
         .compile("libhidapi.a");
     println!("cargo:rustc-link-lib=setupapi");
 }
